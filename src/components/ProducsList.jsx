@@ -23,7 +23,6 @@ function ProducsList() {
   });
   // Show only 9 products
   const displayedProducts = filterProducts.slice(0, page * 9);
-  
 
   const addToCart = (product) => {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -52,6 +51,10 @@ function ProducsList() {
   return (
     <div className="w-full flex justify-center items-center">
       <div className="w-7xl flex justify-center items-center flex-col">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center my-10">
+          Explore Our Collection
+        </h1>
+
         {/* Filter */}
         <Filters setPage={setPage} />
 
