@@ -1,21 +1,9 @@
 import { ShoppingCart } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import cart from "../utils/cart";
 
 function Header() {
-  const [cartCount, setCartCount] = useState(0);
-
-  useEffect(() => {
-    const updateCartCount = () => {
-      let countItem = JSON.parse(localStorage.getItem("cart")) || [];
-      console.log(countItem);
-      setCartCount(countItem.length);
-    };
-    updateCartCount();
-    window.addEventListener("cartUpdated", updateCartCount);
-    return () => {
-      window.removeEventListener("cartUpdated", updateCartCount);
-    };
-  }, []);
+  const cartCount = cart();
 
   return (
     <header className="sticky top-0 z-50 flex justify-between items-center w-100% h-15 shadow p-5">
